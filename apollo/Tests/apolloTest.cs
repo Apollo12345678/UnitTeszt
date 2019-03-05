@@ -79,11 +79,16 @@ namespace apollo.Tests
         }
 
         [Test]
-
         public void MikorIndul2()
         {
             b.UjJarat("1234", "Budapest", "Madrid", new DateTime(2019, 3, 1, 10, 45, 0));
             Assert.AreNotEqual(b.MikorIndul("1234"), b.MikorIndul("2456"));
+        }
+
+        [Test]
+        public void MikorIndul3()
+        {
+            Assert.AreEqual(new DateTime(1,1,1,1,1,1), b.MikorIndul("1234"));
         }
 
         [Test]
