@@ -28,7 +28,15 @@ namespace apollo
 
         public DateTime MikorIndul(string jaratSzam)
         {
-            return Kereses(jaratSzam).getIndulas();
+            if (Kereses(jaratSzam) != null)
+            {
+                return Kereses(jaratSzam).getIndulas();
+            }
+            else
+            {
+                return new DateTime(1,1,1,1,1,1);
+            }
+            
         }
 
         public List<string> JaratokRepuloterrol(string repter)
@@ -38,7 +46,7 @@ namespace apollo
             {
                 if (i.getHonnanRepter().Equals(repter))
                 {
-                    vissza.Add(i.getHonnanRepter());
+                    vissza.Add(i.getJaratszam());
                 }
             }
             return vissza;
@@ -54,6 +62,11 @@ namespace apollo
                 }
             }
             return null;
+        }
+
+        public int getListDarab()
+        {
+            return jaratok.Count;
         }
 
         class Jarat
